@@ -1,0 +1,21 @@
+@import "../../common/color.css";
+
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid #666;
+    margin-top: 2rem;
+    padding: .3rem 0;
+    width: 100%;
+    float:  left !important;
+    clear: none;
+
+}
+
+
+ footer h3{
+    font-size: 1.4rem;
+    color: black;
+}

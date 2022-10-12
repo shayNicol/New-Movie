@@ -1,0 +1,13 @@
+.movies {
+    padding: 0 3rem 3rem 3rem;
+    border-radius: 10%;
+    font-size: 1.75rem;
+    margin:  2.5rem;
+    border-radius: 10%;
+}
+
+.moviecard {
+    display: flex;
+    flex-wrap: wrap ;
+    justify-content: center;
+}
