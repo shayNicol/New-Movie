@@ -3,14 +3,30 @@
     transition: transform .2s;
     position: relative;
     border-radius: 10px;
-    overflow: hidden;
     margin: 0.19rem;
     cursor:pointer;
     min-width:200px;
-    height:300px;
-    z-index:0;
+    height:300px
 
 }
 .cards:hover {
     transform:rotateZ(80deg);
+} 
+
+.cardInfo .overview{
+    border-radius: 2rem;
+    color: aliceblue;
+    background-color: #666;  
+    padding: 4px;
+    width: 10em;
+    display:flex;
+}
+
+.cardInfo .release{
+    border-radius: 2rem;
+    color: aliceblue;
+    background-color: #666;  
+    padding: 4px;
+    width: 10em;
+    display:flex;
 }

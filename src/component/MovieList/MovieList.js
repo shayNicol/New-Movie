@@ -1,14 +1,15 @@
-import { Link } from 'react-router-dom';
 import { useState, useEffect } from "react";
-import pnf from  '../images/pnf.jpeg'
+// import { Link } from 'react-router-dom';
+// import pnf from  '../images/pnf.jpeg'
+import './MovieList.css';
+import MovieCard from '../MovieCard/MovieCard';
 
-const images = "https://image.tmdb.org/t/p/w500/";
 
 const apiUrl = `https://api.themoviedb.org/3/trending/all/week?api_key=781f44fe34ee8390e481e4570e5b6e9d`;
 
 const MovieList = ( {
 }) => {
-const [movies, setMovies] = useState([]);
+const [moviesList, setMovies] = useState([]);
 
 useEffect(() => {
     fetch(apiUrl)
@@ -17,25 +18,19 @@ useEffect(() => {
         setMovies(data.results)
       })
   }, []);
-    return (
-    <section className="movieslist">
-      {movies.length > 0 ? movies.map((movie) => {
-        return (
-        <Link to={`/movie/${movie.id}`}>
-        <div className="Poster">
-            <img src={movie.poster_path ? `${images}${movie.poster_path}` : "https://www.movienewz.com/img/films/poster-holder.jpg"} alt={movie.title} />
-            <div className="movieInfo">
-                <h2>{movie.original_title}</h2>
-                <p className="release">Release Date: {movie.release_date}</p>
-                <p className="vote">Rating: {movie.vote_average}</p>
-                <p className="overview">{movie.overview}</p>
-                <p className="popularity">Popularity: {movie.popularity}</p>
-            </div>
+  return (
+    <div className="movies">
+
+        <h3 className='trending'>Trending All Week</h3>
+        <div className="moviecard">
+            {moviesList?.map(movie => (
+                    <MovieCard key={movie.id} movie={movie} />
+                ))
+            }
+            
         </div>
-        </Link>
-        );
-      }): <p class="no"><img src={pnf} alt ='logo'/></p>}
-      </section>
-    )
+        
+    </div>
+)
 }
 export default MovieList;

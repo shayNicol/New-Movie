@@ -12,9 +12,14 @@ const MovieCard = ({movie}) => {
             <div className="cards">
                 <img className='cards' src={`https://image.tmdb.org/t/p/original${movie?.poster_path}`}alt="" />
                 <div>
-                <div className="card__title">{movie?movie.original_title:""}</div>
                 </div>
+                <div className="cardInfo">
+                    <p className="overview">Popularity: {movie?movie.popularity:""}</p>
+                    <p className="release">vote average: {movie?movie.vote_average:""}</p>
                 </div>
+                
+                </div>
+                
         </Link>
     }
     </>
