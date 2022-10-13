@@ -1,16 +1,14 @@
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from "react";
+import pnf from  '../images/pnf.jpeg'
 
 const images = "https://image.tmdb.org/t/p/w500/";
 
-// main API used to display trending page
 const apiUrl = `https://api.themoviedb.org/3/trending/all/week?api_key=781f44fe34ee8390e481e4570e5b6e9d`;
-
 
 const MovieList = ( {
 }) => {
 const [movies, setMovies] = useState([]);
-
 
 useEffect(() => {
     fetch(apiUrl)
@@ -19,8 +17,6 @@ useEffect(() => {
         setMovies(data.results)
       })
   }, []);
-
-
     return (
     <section className="movieslist">
       {movies.length > 0 ? movies.map((movie) => {
@@ -35,17 +31,11 @@ useEffect(() => {
                 <p className="overview">{movie.overview}</p>
                 <p className="popularity">Popularity: {movie.popularity}</p>
             </div>
-
         </div>
         </Link>
-          
         );
-      }): <p class="no">No found</p>}
-        </section>
-
-
+      }): <p class="no"><img src={pnf} alt ='logo'/></p>}
+      </section>
     )
 }
-
-
 export default MovieList;
