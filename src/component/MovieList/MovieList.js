@@ -1,40 +1,51 @@
-import React,{useEffect, useState} from 'react'
-import MovieCard from '../../component/MovieCard/MovieCard'
-import './MovieList.css';
+import { Link } from 'react-router-dom';
+import { useState, useEffect } from "react";
+
+const images = "https://image.tmdb.org/t/p/w500/";
+
+// main API used to display trending page
+const apiUrl = `https://api.themoviedb.org/3/trending/all/week?api_key=781f44fe34ee8390e481e4570e5b6e9d`;
 
 
+const MovieList = ( {
+}) => {
+const [movies, setMovies] = useState([]);
 
-const MovieList = () => {
 
-    const url =
-    "https://api.themoviedb.org/3/trending/all/week?api_key=781f44fe34ee8390e481e4570e5b6e9d";
+useEffect(() => {
+    fetch(apiUrl)
+      .then((res) => res.json())
+      .then((data)=> {
+        setMovies(data.results)
+      })
+  }, []);
 
-   
-    const [movieList, setMovieList] = useState([])
 
-    useEffect(() => {
-        fetchTrending();
-      }, []);
-
-    const fetchTrending = async () => {
-        const data = await fetch(url);
-        const movies = await data.json();
-        console.log(movies);
-        setMovieList(movies.results);
-      };
-
-    
     return (
-        <div className="movies">
-            <div className="moviecard">
-                
-                {movieList?.map(movie => (
-                        <MovieCard key={movie.id} movie={movie} />
-                    ))
-                }
+    <section className="movieslist">
+      {movies.length > 0 ? movies.map((movie) => {
+        return (
+        <Link to={`/movie/${movie.id}`}>
+        <div className="Poster">
+            <img src={movie.poster_path ? `${images}${movie.poster_path}` : "https://www.movienewz.com/img/films/poster-holder.jpg"} alt={movie.title} />
+            <div className="movieInfo">
+                <h2>{movie.original_title}</h2>
+                <p className="release">Release Date: {movie.release_date}</p>
+                <p className="vote">Rating: {movie.vote_average}</p>
+                <p className="overview">{movie.overview}</p>
+                <p className="popularity">Popularity: {movie.popularity}</p>
             </div>
+
         </div>
+        </Link>
+          
+        );
+      }): <p class="no">No found</p>}
+        </section>
+
+
     )
 }
+
 
 export default MovieList;

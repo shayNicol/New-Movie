@@ -3,13 +3,13 @@ import {Link} from "react-router-dom";
 import "./Header.css";
 
 const Header = () => {
+    
     return (
         <div className='header'>
-                <ul className='navbar'>
-                <h3 className='title'>MovieCard App</h3>
-                <button><Link to="/">Home</Link></button>
-                <input className='searhbar' placeholder='Search Here..'/>
-            </ul>
+            <div className='navbar1'>
+                <button className='navbar'><Link to="/">Home</Link></button>
+            </div>
+            <h2 className='title'>Movie Card</h2>
             </div>
     );
 };

@@ -1,19 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './PageNotFound.css';
+import pnf from '../images/pnf.jpeg'
 
 
 const PageNotFound = () => {
     return (
-        <nav>
-    <div className='pagenot'>
-    <h1>404 PAGE NOT FOUND</h1>
-    <p> Sorry this page can't be found please go back</p>
-    <div className='homenot'>
+        <div className='404page'>
+    <img className="btnn" src={pnf} alt ='notfound'/>
+    <div className='back'>
     <Link to="/">Go Home</Link>
-</div>
     </div>
-        </nav>
+        </div>
     
     );
 };

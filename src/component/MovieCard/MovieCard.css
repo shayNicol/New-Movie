@@ -1,25 +1,16 @@
 .cards {
-
+    display: inline-block;
+    transition: transform .2s;
+    position: relative;
+    border-radius: 10px;
     overflow: hidden;
     margin: 0.19rem;
     cursor:pointer;
-    display: inline-block;
-    transition: transform 1.2s;
-    position: relative;
-    border-radius: 20px;
     min-width:200px;
     height:300px;
     z-index:0;
+
 }
-
-
-.img {
-    height: 300px;
-}
-
 .cards:hover {
-    transform: rotateY(360deg);
-    z-index: 1000;
+    transform:rotateZ(80deg);
 }
-
-
